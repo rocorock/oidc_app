@@ -10,6 +10,8 @@ Welcome to oicd_app's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   requirement.rst
+
 
 
 Indices and tables
