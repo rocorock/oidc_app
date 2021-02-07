@@ -11,7 +11,8 @@ Welcome to oicd_app's documentation!
    :caption: Contents:
 
    requirement.rst
-
+   thymeleaf.rst
+   view.rst
 
 
 Indices and tables

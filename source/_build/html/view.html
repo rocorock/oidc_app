@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>画面設計 &#8212; oicd_app  ドキュメント</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="prev" title="Thymeleaf" href="thymeleaf.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>画面設計<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id2">
+<h2>画面一覧<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>リクエスト画面</p></li>
+<li><p>リソース画面</p></li>
+<li><p>設定画面</p></li>
+<li><p>エラー画面</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>画面遷移<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id4">
+<h3>正常系<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ol class="arabic simple">
+<li><p>/homeにブラウザよりアクセスすると、リクエスト画面が表示される</p></li>
+</ol>
+<img alt="_images/index.png" src="_images/index.png" />
+<ol class="arabic simple" start="2">
+<li><p>「Get OAuth Token」を押下すると、認可サーバより同意画面が表示される</p></li>
+</ol>
+<img alt="_images/terms_agreement.png" src="_images/terms_agreement.png" />
+<div class="line-block">
+<div class="line">3. 「Approve」を押下すると、クライアントにリダイレクトされ、アクセストークンが表示される</div>
+<div class="line">この際に事前に、認可サーバとClientでトークンリクエストを行っていることに注意</div>
+<div class="line">(リダイレクト時に直接トークンを返しているわけではない)</div>
+</div>
+<img alt="_images/access_token.png" src="_images/access_token.png" />
+<ol class="arabic simple" start="4">
+<li><p>「Get Protected Resource」を押下すると、保護リソースが表示される</p></li>
+</ol>
+<img alt="_images/resource.png" src="_images/resource.png" />
+</div>
+<div class="section" id="id5">
+<h3>異常系<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="case1">
+<h4>Case1 アクセストークンを取得せずに保護リソースにアクセスした<a class="headerlink" href="#case1" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ol class="arabic simple">
+<li><p>「Acces token value」が「Null」の状態で、「Get Protected Resource」を押下する</p></li>
+</ol>
+<img alt="_images/index.png" src="_images/index.png" />
+<ol class="arabic simple" start="2">
+<li><p>エラー画面が表示される</p></li>
+</ol>
+<img alt="_images/error.png" src="_images/error.png" />
+</div>
+<div class="section" id="case2-deny">
+<h4>Case2 同意画面で「Deny」を選択した<a class="headerlink" href="#case2-deny" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ol class="arabic simple">
+<li><p>/homeにブラウザよりアクセスすると、リクエスト画面が表示される</p></li>
+</ol>
+<img alt="_images/index.png" src="_images/index.png" />
+<ol class="arabic simple" start="2">
+<li><p>「Get OAuth Token」を押下すると、認可サーバより同意画面が表示される</p></li>
+</ol>
+<img alt="_images/terms_agreement.png" src="_images/terms_agreement.png" />
+<ol class="arabic simple" start="3">
+<li><p>「Deny」を押下すると、エラー画面が表示される</p></li>
+</ol>
+<img alt="_images/error.png" src="_images/error.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">oicd_app</a></h1>
+
+
+
+
+
+
+
+
+<h3>ナビゲーション</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="requirement.html">要件定義</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thymeleaf.html">Thymeleaf</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">画面設計</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">画面一覧</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">画面遷移</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="thymeleaf.html" title="前の章へ">Thymeleaf</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, rocorock.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/view.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

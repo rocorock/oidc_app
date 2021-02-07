@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thymeleaf &#8212; oicd_app  ドキュメント</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="prev" title="要件定義" href="requirement.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="thymeleaf">
+<h1>Thymeleaf<a class="headerlink" href="#thymeleaf" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id1">
+<h2>Thymeleaf入門<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id2">
+<h3>Thymeleafとは<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>テンプレートエンジンの一つ。
+雛形となるドキュメント(テンプレート)に対し、
+可変データを埋め込むことにより動的にドキュメントを生成する。</p>
+<p>Thymeleafの特徴として、テンプレートをHTMLやHTML5に準拠した形で記述できることがあげられる。
+JSPではブラウザの認識できないタグライブラリがあり、開発中のJSPをブラウザで表示させるのが難しいと言う問題があった。
+ThymeleafはHTMLに準拠しているため、テンプレートをブラウザで直接表示でき、デザイナーと開発者の分業を促進する。</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Thymeleafのテンプレート<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Thymeleafでは、テンプレートをDOM(Document Object Model)に変換して処理する。
+「処理対象のDOMノード」と「DOMノードに対する処理」をth属性で指定する。</p>
+<dl>
+<dt>プロセッサ</dt><dd><p>DOMノード(th属性が指されているノード)に対する操作(追加、削除、変更)を行う</p>
+</dd>
+<dt>OGNL(Object-Graph Naavigation Language)</dt><dd><p>th属性の属性値に指定できる式言語</p>
+</dd>
+<dt>Dialect</dt><dd><ul class="simple">
+<li><p>DOM操作を行うプロセッサ</p></li>
+<li><p>th属性の属性値に指定された式を解釈するコンポーネント</p></li>
+<li><p>暗黙オブジェクトを生成するコンポーネント</p></li>
+</ul>
+<p>などの総称。
+デフォルトではSpringStandardDirectクラスが使用される</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="thymleaf">
+<h2>Thymleafの代表的な機能<a class="headerlink" href="#thymleaf" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic simple">
+<li><p>ThymeleafのテンプレートをSpring MVCのViewとして使うことができる</p></li>
+<li><p>テンプレート内でSpring ELを利用できる</p></li>
+<li><p>テンプレートとフォームチェック及び入力値チェックの結果がバインド可能となる</p></li>
+<li><p>国際化対応のメッセージを表示することができる</p></li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">oicd_app</a></h1>
+
+
+
+
+
+
+
+
+<h3>ナビゲーション</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="requirement.html">要件定義</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Thymeleaf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Thymeleaf入門</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Thymeleafのテンプレート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#thymleaf">Thymleafの代表的な機能</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="requirement.html" title="前の章へ">要件定義</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, rocorock.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/thymeleaf.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
