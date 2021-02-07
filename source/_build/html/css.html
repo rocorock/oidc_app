@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS設計 &#8212; oicd_app  ドキュメント</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="css">
+<h1>CSS設計<a class="headerlink" href="#css" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id1">
+<h2>コンテンツ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>PRECSS</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>CSSの基本<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id3">
+<h3>セレクター<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt>単純セレクター</dt><dd><ul>
+<li><p>要素型セレクター(p{})</p></li>
+<li><p>全称セレクター(<code class="docutils literal notranslate"><span class="pre">*{}</span></code>)</p></li>
+<li><p>属性セレクター(<code class="docutils literal notranslate"><span class="pre">a[href=&quot;http://www.w3.org/&quot;]{}</span></code>)</p></li>
+<li><p>クラスセレクター(.my-class{})</p></li>
+<li><p>IDセレクター(#my-id{})</p></li>
+<li><p>擬似クラス(a:visited{})</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>擬似要素(a::before{})</p></li>
+<li><dl class="simple">
+<dt>結合子</dt><dd><ul>
+<li><p>子孫結合子(div p)</p></li>
+<li><p>子結合子(div &gt; p)</p></li>
+<li><p>兄弟結合子(div + p)</p></li>
+<li><p>一般兄弟結合子(div ~ p)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>カスケーディング<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>セレクターに対するプロパティの適用順</p>
+<ol class="arabic simple">
+<li><p>重要度</p></li>
+<li><dl class="simple">
+<dt>詳細度</dt><dd><ol class="arabic simple">
+<li><p>IDセレクター</p></li>
+<li><p>クラスセレクター・属性セレクター・擬似クラス</p></li>
+<li><p>要素型セレクター</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p>コードの順序</p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h3>リセットCSS<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ol class="arabic simple">
+<li><p>ハードリセット</p></li>
+</ol>
+<p>各要素の余白を取り除き、フォントサイズを統一する</p>
+<ol class="arabic simple">
+<li><p>ノーマライズ</p></li>
+</ol>
+<p>デフォルトに近い形でスタイル定義がされる</p>
+</div>
+<div class="section" id="id6">
+<h3>CSS設計のゴール<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ol class="arabic simple">
+<li><p>予測できる</p></li>
+<li><p>再利用できる</p></li>
+<li><p>保守できる</p></li>
+<li><p>拡張できる</p></li>
+</ol>
+</div>
+<div class="section" id="id7">
+<h3>CSS設計のポイント<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ol class="arabic simple">
+<li><p>特製に応じて分類する</p></li>
+<li><dl class="simple">
+<dt>HTMLとスタイリングが疎結合である</dt><dd><p>要素型セレクターを利用しない</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>影響範囲がみだりに広すぎない</dt><dd><ul class="simple">
+<li><p>スコープを絞る</p></li>
+<li><p>影響範囲の広いCSS煮含めるスタイリングは最小限にする</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>特定のコンテキストにみだりに依存していない</dt><dd><p>コンテキスト=場所や状況</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>詳細度がみだりに高くない</dt><dd><p>セレクターはクラスセレクターを利用する</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>クラス名から影響範囲が想像できる</dt><dd><p>モジュールの子要素には、モジュールのルート要素のクラス名を継承させる</p>
+</dd>
+</dl>
+</li>
+<li><p>クラス名から見た目・機能・役割が想像できる</p></li>
+<li><dl class="simple">
+<dt>拡張しやすい</dt><dd><ul class="simple">
+<li><p>シングルクラス設計</p></li>
+<li><p>マルチクラス設計</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="precss">
+<h2>PRECSS<a class="headerlink" href="#precss" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id8">
+<h3>グループ<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ol class="arabic simple">
+<li><p>ベース</p></li>
+<li><p>レイアウト</p></li>
+<li><dl class="simple">
+<dt>モジュール</dt><dd><ol class="loweralpha simple">
+<li><p>ブロックモジュール</p></li>
+<li><p>エレメントモジュール</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p>ヘルパー</p></li>
+<li><p>ユニーク</p></li>
+<li><p>プログラム</p></li>
+</ol>
+</div>
+<div class="section" id="id9">
+<h3>基本的な指針<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ol class="arabic">
+<li><p>命名規則</p>
+<blockquote>
+<div><p>グループの接頭辞(2文字) + アンダースコア(_) + クラス名</p>
+<div class="line-block">
+<div class="line">可読性の損なわれないかぎり、単語を省略することを推奨する</div>
+<div class="line">意味のある、または挙動の読み取れる命名規則をクラス名にする</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>ベースグループ</p>
+<blockquote>
+<div><p>接頭辞なし</p>
+<div class="line-block">
+<div class="line">リセットCSSのルールセットや標準となるスタイリングを行う</div>
+<div class="line">特定のスコープ内の限定的なベースラインの適用も許容する</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>レイアウトグループ</p>
+<blockquote>
+<div><p>接頭辞(<a href="#id10"><span class="problematic" id="id11">ly_</span></a>)[layout]</p>
+<div class="line-block">
+<div class="line">ヘッダー等大きなレイアウトを形成する要素に使用</div>
+<div class="line">原則レイアウトに関わるスタイリングのみ行う</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>モジュールグループ</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">再利用性の高いコードをモジュールとよぶ</div>
+<div class="line">大きさにより、ブロックモジュールとエレメントモジュールに分ける</div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p>4a. ブロックモジュール</p>
+<blockquote>
+<div><p>接頭辞(<a href="#id12"><span class="problematic" id="id13">bl_</span></a>)[block]</p>
+<div class="line-block">
+<div class="line">モジュール特有の子要素、エレメントモジュールや他のブロックモジュールをまとめ、</div>
+<div class="line">様々なページで利用可能とする</div>
+<div class="line">他の要素に影響を及ばさないスタイルのみ適用する</div>
+<div class="line">レイアウトに関わる指定が必要な場合は、コンテキストのエレメントとしてスタイルを適用する</div>
+</div>
+<p>命名規則</p>
+<ul class="simple">
+<li><p>Block - ブロックモジュールの単位</p></li>
+<li><p>Unit - Blockの集まり</p></li>
+<li><p>Container - Unitの集まり</p></li>
+</ul>
+</div></blockquote>
+<p>4b. エレメントモジュール</p>
+<blockquote>
+<div><p>接頭辞(<a href="#id14"><span class="problematic" id="id15">el_</span></a>)[element]</p>
+<div class="line-block">
+<div class="line">ボタンやラベルなどの最小単位のモジュール</div>
+<div class="line">他の色々なモジュールの中に埋め込まれる</div>
+<div class="line">命名は汎用的な名前を利用</div>
+</div>
+</div></blockquote>
+<ol class="arabic" start="5">
+<li><p>モディファイア</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">命名規則</div>
+<div class="line">基になるクラス名__モディファイア名</div>
+</div>
+<div class="line-block">
+<div class="line">「規則により振る舞いが変わる」際などに、上書きを行う</div>
+<div class="line">命名では、見た目よりも意味を重視(色を[theme]など)</div>
+<div class="line">スタイルを上書きする際は、セレクターに複合クラスを使用して、詳細度を高める</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>ヘルパーグループ</p>
+<blockquote>
+<div><p>接頭辞(<a href="#id16"><span class="problematic" id="id17">hp_</span></a>)[helper]</p>
+<div class="line-block">
+<div class="line">一部だけスタイルを調整したいときに利用</div>
+<div class="line">!importantをつけることが推奨</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>ユニークグループ</p>
+<blockquote>
+<div><p>接頭辞(<a href="#id18"><span class="problematic" id="id19">un_</span></a>)[unique]</p>
+<div class="line-block">
+<div class="line">あるページでしか使用されないグループ</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>プログラムグループ</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>接頭辞(<a href="#id20"><span class="problematic" id="id21">js_</span></a>)[JavaScript]</p></li>
+</ul>
+<div class="line-block">
+<div class="line">JavaScriptで要素を取得するクラス</div>
+</div>
+<ul class="simple">
+<li><p>接頭辞(<a href="#id22"><span class="problematic" id="id23">is_</span></a>)</p></li>
+</ul>
+<div class="line-block">
+<div class="line">要素の状態を管理するクラス</div>
+<div class="line">!importantの使用が推奨</div>
+</div>
+<div class="line-block">
+<div class="line">JavaScript等のプログラムで要素にタッチする際、状態を管理する際に利用</div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">oicd_app</a></h1>
+
+
+
+
+
+
+
+
+<h3>ナビゲーション</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="requirement.html">要件定義</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thymeleaf.html">Thymeleaf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view.html">画面設計</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, rocorock.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/css.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
