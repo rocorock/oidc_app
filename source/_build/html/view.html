@@ -47,44 +47,55 @@
 <h2>画面遷移<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id4">
 <h3>正常系<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="case1-login">
+<h4>Case1 Loginボタンから認可リクエストを行う<a class="headerlink" href="#case1-login" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ol class="arabic simple">
-<li><p>/homeにブラウザよりアクセスすると、リクエスト画面が表示される</p></li>
+<li><p>/homeにブラウザよりアクセスすると、ホーム画面が表示される</p></li>
 </ol>
-<img alt="_images/index.png" src="_images/index.png" />
+<img alt="_images/header.png" src="_images/header.png" />
 <ol class="arabic simple" start="2">
-<li><p>「Get OAuth Token」を押下すると、認可サーバより同意画面が表示される</p></li>
+<li><p>「Login」を押下すると、認可サーバより同意画面が表示される</p></li>
 </ol>
 <img alt="_images/terms_agreement.png" src="_images/terms_agreement.png" />
 <div class="line-block">
-<div class="line">3. 「Approve」を押下すると、クライアントにリダイレクトされ、アクセストークンが表示される</div>
+<div class="line">3. 「Approve」を押下すると、クライアントにリダイレクトされ、マイページが表示される</div>
 <div class="line">この際に事前に、認可サーバとClientでトークンリクエストを行っていることに注意</div>
 <div class="line">(リダイレクト時に直接トークンを返しているわけではない)</div>
 </div>
-<img alt="_images/access_token.png" src="_images/access_token.png" />
-<ol class="arabic simple" start="4">
-<li><p>「Get Protected Resource」を押下すると、保護リソースが表示される</p></li>
+<img alt="_images/mypage.png" src="_images/mypage.png" />
+</div>
+<div class="section" id="case2-manual">
+<h4>Case2 Manualボタンから認可リクエストを行う<a class="headerlink" href="#case2-manual" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ol class="arabic simple">
+<li><p>/homeにブラウザよりアクセスすると、ホーム画面が表示される</p></li>
 </ol>
-<img alt="_images/resource.png" src="_images/resource.png" />
+<img alt="_images/header.png" src="_images/header.png" />
+<ol class="arabic simple" start="2">
+<li><p>「Manual」を押下すると、手動入力画面が表示される</p></li>
+</ol>
+<img alt="_images/authz_req.png" src="_images/authz_req.png" />
+<ol class="arabic simple" start="3">
+<li><p>Authorization Requestに項目を入力し「Submit」を押下すると、認可サーバより同意画面が表示される</p></li>
+</ol>
+<img alt="_images/terms_agreement.png" src="_images/terms_agreement.png" />
+<ol class="arabic simple" start="4">
+<li><p>「Approve」を押下すると、クライアントにリダイレクトされ、認可レスポンスが表示される</p></li>
+</ol>
+<img alt="_images/authz_res.png" src="_images/authz_res.png" />
+<ol class="arabic simple" start="5">
+<li><p>Token Requestに項目を入力し「Submit」を押下すると、トークンレスポンスが表示される</p></li>
+</ol>
+<img alt="_images/token_req.png" src="_images/token_req.png" />
+</div>
 </div>
 <div class="section" id="id5">
 <h3>異常系<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="section" id="case1">
-<h4>Case1 アクセストークンを取得せずに保護リソースにアクセスした<a class="headerlink" href="#case1" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="case1-deny">
+<h4>Case1 同意画面で「Deny」を選択した<a class="headerlink" href="#case1-deny" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ol class="arabic simple">
-<li><p>「Acces token value」が「Null」の状態で、「Get Protected Resource」を押下する</p></li>
+<li><p>/homeにブラウザよりアクセスすると、ホーム画面が表示される</p></li>
 </ol>
-<img alt="_images/index.png" src="_images/index.png" />
-<ol class="arabic simple" start="2">
-<li><p>エラー画面が表示される</p></li>
-</ol>
-<img alt="_images/error.png" src="_images/error.png" />
-</div>
-<div class="section" id="case2-deny">
-<h4>Case2 同意画面で「Deny」を選択した<a class="headerlink" href="#case2-deny" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<ol class="arabic simple">
-<li><p>/homeにブラウザよりアクセスすると、リクエスト画面が表示される</p></li>
-</ol>
-<img alt="_images/index.png" src="_images/index.png" />
+<img alt="_images/header.png" src="_images/header.png" />
 <ol class="arabic simple" start="2">
 <li><p>「Get OAuth Token」を押下すると、認可サーバより同意画面が表示される</p></li>
 </ol>
