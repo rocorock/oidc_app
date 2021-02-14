@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="ここにサイト説明を入れます">
+	<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
+    <link rel="stylesheet" th:href="@{/css/media.css}">
+	<link rel="stylesheet" th:href="@{/css/base.css}">
+	<link rel="stylesheet" th:href="@{/css/header.css}">
+	<link rel="stylesheet" th:href="@{/css/footer.css}">
+	<script type="text/javascript" src="js/openclose.js"></script>
+</head>
+
+<body>
+	<header th:replace="login_header :: header">
+	</header>
+	<main class="ly_main">
+		<section class="ly_cont">
+			<div class="bl_jumbotron">
+				<!-- /.bl_jumbotron_inner -->
+			</div>
+			
+			<h2 class="el_lv2Heading">
+				News
+			</h2>
+
+			<ul class="bl_vertPosts">
+				<li class="bl_vertPosts_item">
+				  <div class="bl_vertPosts_header">
+					<time class="bl_vertPosts_date" datetime="2021-01-01">2021/01/01</time>
+				  </div>
+				  <!-- /.bl_vertPosts_header -->
+				  <a class="bl_vertPosts_ttl" href="#">Sample Cafeのオープン</a>
+				</li>
+				<li class="bl_vertPosts_item">
+				  <div class="bl_vertPosts_header">
+					<time class="bl_vertPosts_date" datetime="2021-01-01">2021/01/01</time>
+				  </div>
+				  <!-- /.bl_vertPosts_header -->
+				  <a class="bl_vertPosts_ttl" href="#">Menuの追加</a>
+				</li>
+				<li class="bl_vertPosts_item">
+				  <div class="bl_vertPosts_header">
+					<time class="bl_vertPosts_date" datetime="2021-01-01">2021/01/01</time>
+				  </div>
+				  <!-- /.bl_vertPosts_header -->
+				  <a class="bl_vertPosts_ttl" href="#">Accessの追加</a>
+				</li>
+			</ul>
+		</section>
+	</main>
+	<footer th:replace="footer :: footer">
+	</footer>
+</body>
+
+</html>

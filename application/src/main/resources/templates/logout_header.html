@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>カフェ向け無料ホームページテンプレート tp_cafe13</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ここにサイト説明を入れます">
+    <meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <script type="text/javascript" src="js/openclose.js"></script>
+</head>
+
+<body>
+	<header class="ly_header" th:fragment="header">
+        <div class="ly_header_inner">
+            <div class="bl_headerUtils">
+                <a class="bl_headerUtils_logo" th:href="@{/home}"><img th:src="@{/image/logo.png}"
+                    alt="Sample Cafe" /></a>
+            <div>
+                <a class="el_roundedBtn" th:href="@{/mypage}">Logout</a>
+                <a class="el_roundedBtn" th:href="@{/manual}">Manual</a>
+            </div>
+            </div>
+            <nav>
+                <ul class="bl_headerNav">
+                    <li class="bl_headerNav_item">
+                        <a class="bl_headerNav_link" th:href="@{/home}">HOME</a>
+                    </li>
+                    <li class="bl_headerNav_item">
+                        <a class="bl_headerNav_link" th:href="@{/menu}">MENU</a>
+                    </li>
+                    <li class="bl_headerNav_item">
+                        <a class="bl_headerNav_link" th:href="@{/access}">ACCESS</a>
+                    </li>
+                    <li class="bl_headerNav_item">
+                        <a class="bl_headerNav_link" th:href="@{/recruit}">RECRUIT</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</body>
+
+</html>

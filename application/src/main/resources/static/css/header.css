@@ -1,74 +1,112 @@
-.ly_header {
-  padding-top: 20px;
-  border-bottom: 1px solid #ddd;
-}
+@charset "utf-8";
 
+
+/*PC・タブレット・スマホ共通設定
+---------------------------------------------------------------------------*/
+
+
+/*ヘッダー（サイトロゴとメインメニューが入ったブロック）
+---------------------------------------------------------------------------*/
+/*ヘッダーブロック*/
+.ly_header {
+    padding-top: 20px;
+    border-bottom: 1px solid #ddd;
+}
 .ly_header_inner {
-  max-width: 1230px;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  box-sizing: border-box;
+    max-width : 1230px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .bl_headerUtils {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
+
 
 .bl_headerUtils_logo {
-  width: 150px;
-}
-
-.bl_headerUtils .el_btn {
-  width: auto;
-  padding: 10px 20px;
-  box-shadow: none;
+    width: 300px;
 }
 
 .bl_headerNav {
-  display: flex;
-  justify-content: space-around;
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+  
+  .bl_headerNav_item {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .bl_headerNav_item:last-child .bl_headerNav_link::after {
+    content: none;
+  }
+  
+  .bl_headerNav_link {
+    background: #3b9dab;	/*背景色*/
+    color: #fff;
+    position: relative;
+    display: block;
+    padding: 15px 5px;
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+    transition: .25s;
+    font-size: 20px;
+  }
+  
+  .bl_headerNav_link:focus,
+  .bl_headerNav_link:hover {
+    background: #fff;	/*背景色*/
+	color: #3b9dab;		/*文字色*/
+  }
+  
+/*
+  .bl_headerNav_link::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 1px;
+    height: 20px;
+    background-color: #ddd;
+    transform: translateY(-50%);
+  }
+*/
+
+.el_roundedBtn {
+  display:  inline-block;
+  width:  236px;
+  max-width: 100%;
+  padding:  15px 10px;
+  background-color:  #3b9dab;	
+  border:  2px solid transparent;
+  border-bottom-color:  #3b9dab;	
+  border-radius:  10px;
+  color:  #fff;
+  font-size:  1.125rem;
+  text-align:  center;
+  text-decoration:  none;
+  transition:  .25s;
+  box-sizing: border-box;
 }
 
-.bl_headerNav_item {
-  flex-grow: 1;
-  text-align: center;
+.el_roundedBtn:focus,
+.el_roundedBtn:hover {
+  background-color:  #fff;
+  border-color:  currentColor;
+  color:  #3b9dab;
 }
 
-.bl_headerNav_item:last-child .bl_headerNav_link::after {
-  content: none;
-}
-
-.bl_headerNav_link {
-  position: relative;
-  display: block;
-  padding: 15px 5px;
-  border-bottom: 4px solid transparent;
-  color: #222;
-  text-decoration: none;
-  transition: .25s;
-}
-
-.bl_headerNav_link:focus,
-.bl_headerNav_link:hover {
-  border-bottom-color: #e25c00;
-}
-
-.bl_headerNav_link::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: 1px;
-  height: 20px;
-  background-color: #ddd;
-  transform: translateY(-50%);
+.bl_headerUtils .el_roundedBtn {
+  width: auto;
+  padding: 10px 20px;
+  box-shadow: none;
 }

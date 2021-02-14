@@ -1,7 +1,14 @@
-.ly_footer {
+.ly_footer{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.ly_footer_back{
+    max-width : 1230px;
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: #222;
+    margin-right: auto;
+    margin-left: auto;
   }
   
   .hp_btGray {

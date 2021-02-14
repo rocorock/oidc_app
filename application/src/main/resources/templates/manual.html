@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>manual</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="ここにサイト説明を入れます">
+	<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
+    <link rel="stylesheet" th:href="@{/css/media.css}">
+	<link rel="stylesheet" th:href="@{/css/base.css}">
+	<link rel="stylesheet" th:href="@{/css/header.css}">
+	<link rel="stylesheet" th:href="@{/css/footer.css}">">
+	<script type="text/javascript" src="js/openclose.js"></script>
+</head>
+
+<body>
+	<header th:replace="login_header :: header">
+	</header>
+	<main class="ly_main">
+		<section class="ly_cont">
+			<h1 class="el_lv1Heading">
+				<span>MANUAL</span>
+			</h1>
+
+			<div class="bl_h2Utils">
+				<h2 class="el_lv2Heading">
+					Authorization Request
+				</h2>
+				<a class="el_roundedBtn" href="#">Submit</a>
+			</div>
+
+			<div class="bl_horizTable">
+				<form class="bl_formTable" action="//www-creators.com/rsc/receiver.php" method="post">
+					<table>
+						<tbody>
+							<tr>
+								<th>request_url</th>
+								<td>
+									<input id="authz_request_url" type="text">
+								</td>
+							</tr>
+							<tr>
+								<th>response_type</th>
+								<td>
+									<input id="authz_response_type" type="text">
+								</td>
+							</tr>
+							<tr>
+								<th>scope</th>
+								<td>
+									<input id="authz_scope" type="text">
+								</td>
+							</tr>
+							<tr>
+								<th>client_id</th>
+								<td>
+									<input id="authz_client_id" type="text">
+								</td>
+							</tr>
+							<tr>
+								<th>redirect_uri</th>
+								<td>
+									<input id="authz_redirect_uri" type="text">
+								</td>
+							</tr>
+							<tr>
+								<th>state</th>
+								<td>
+									<input id="authz_state" type="text">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+
+			<div class="bl_h2Utils">
+				<h2 class="el_lv2Heading">
+					Authorization Response
+				</h2>
+			</div>
+
+			<div class="bl_horizTable">
+					<table>
+						<tbody>
+							<tr>
+								<th>status_code</th>
+								<td></td>
+							</tr>
+							<tr>
+								<th>code</th>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<th>state›</th>
+								<td>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+
+			<div class="bl_h2Utils">
+				<h2 class="el_lv2Heading">
+					Token Request
+				</h2>
+				<a class="el_roundedBtn" href="#">Submit</a>
+			</div>
+
+			<div class="bl_horizTable">
+				<form class="bl_formTable" action="//www-creators.com/rsc/receiver.php" method="post">
+					<table>
+						<tbody>
+							<tr>
+								<th>request_url</th>
+								<td>
+									<input id="access_request_url" type="text">
+								</td>
+							</tr>
+							<tr>
+								<th>grant_type</th>
+								<td>
+									<input id="access_grant_type" type="text">
+								</td>
+							</tr>
+							<tr>
+								<th>redirect_uri</th>
+								<td>
+									<input id="access_redirect_uri" type="text">
+								</td>
+							</tr>
+							<tr>
+								<th>code</th>
+								<td>
+									<input id="access_code" type="text">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+
+			<div class="bl_h2Utils">
+				<h2 class="el_lv2Heading">
+					Token Response
+				</h2>
+			</div>
+
+			<div class="bl_horizTable">
+					<table>
+						<tbody>
+							<tr>
+								<th>access_token</th>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<th>token_type</th>
+								<td>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+
+			<div class="bl_h2Utils">
+				<h2 class="el_lv2Heading">
+					User Info Request
+				</h2>
+				<a class="el_roundedBtn" href="#">Submit</a>
+			</div>
+			<div class="bl_horizTable">
+				<form class="bl_formTable" action="//www-creators.com/rsc/receiver.php" method="post">
+					<table>
+						<tbody>
+							<tr>
+								<th>request_url</th>
+								<td>
+									<input id="info_request_url" type="text">
+								</td>
+							</tr>
+							<tr>
+								<th>response_type</th>
+								<td>
+									<input id="info_response_type" type="text">
+								</td>
+							</tr>
+							<tr>
+								<th>client_id</th>
+								<td>
+									<input id="info_client_id" type="text">
+								</td>
+							</tr>
+							<tr>
+								<th>redirect_uri</th>
+								<td>
+									<input id="info_redirect_uri" type="text">
+								</td>
+							</tr>
+							<tr>
+								<th>id_token</th>
+								<td>
+									<input id="info_id_token" type="text">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+
+			<div class="bl_h2Utils">
+				<h2 class="el_lv2Heading">
+					User Info Response
+				</h2>
+			</div>
+
+			<div class="bl_horizTable">
+					<table>
+						<tbody>
+							<tr>
+								<th>request_url</th>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<th>response_type</th>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<th>client_id</th>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<th>redirect_uri</th>
+								<td>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+		</section>
+	</main>
+	<footer th:replace="footer :: footer">
+	</footer>
+</body>
+
+</html>
